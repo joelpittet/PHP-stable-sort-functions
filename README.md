@@ -1,6 +1,6 @@
 PHP stable sort utility methods
 =========================
-Version 1.0.3
+Version 2.0.0
 [![Build Status](https://travis-ci.org/vanderlee/PHP-stable-sort-functions.svg)](https://travis-ci.org/vanderlee/PHP-stable-sort-functions)
 
 Copyright &copy; 2015 Martijn van der Lee (http://martijn.vanderlee.com).
