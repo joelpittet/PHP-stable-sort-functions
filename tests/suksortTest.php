@@ -5,31 +5,32 @@
  */
 class suksortTest extends PHPUnit_Framework_TestCase {
 
-	public static function compare_string_skip($a, $b) {
-		return strcmp(substr($a, 1), substr($b, 1));
-	}
-		
-	/**
-	 * @covers suksort
-	 * @group  stablesort
-	 */
-	public function testAssociation() {
-		$source = array(
-			'a3'	=> 1,
-			'b2'	=> 2,
-			'c2'	=> 3,
-			'd1'	=> 4,
-		);
-		
-		$expected = array(
-			'd1'	=> 4,
-			'b2'	=> 2,
-			'c2'	=> 3,
-			'a3'	=> 1,
-		);
-		
-		$array = $source;
-		suksort($array, array(__CLASS__, 'compare_string_skip'));
-		$this->assertSame($expected, $array);
-	}
+  public static function compare_string_skip($a, $b) {
+    return strcmp(substr($a, 1), substr($b, 1));
+  }
+
+  /**
+   * @covers SortArray::uksort
+   * @group  stablesort
+   */
+  public function testAssociation() {
+    $source = array(
+      'a3'  => 1,
+      'b2'  => 2,
+      'c2'  => 3,
+      'd1'  => 4,
+    );
+
+    $expected = array(
+      'd1'  => 4,
+      'b2'  => 2,
+      'c2'  => 3,
+      'a3'  => 1,
+    );
+
+    $array = $source;
+    SortArray::uksort($array, array(__CLASS__, 'compare_string_skip'));
+    $this->assertSame($expected, $array);
+  }
+
 }

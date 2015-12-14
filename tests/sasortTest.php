@@ -5,48 +5,49 @@
  */
 class sasortTest extends PHPUnit_Framework_TestCase {
 
-	/**
-	 * @covers sasort
-	 * @group  stablesort
-	 */
-	public function testAssociation() {
-		$source = array(
-			'a'	=> 3,
-			'b'	=> 2,
-			'c'	=> 2,
-			'd'	=> 1,
-		);
-		
-		$expected = array(
-			'd'	=> 1,			
-			'b'	=> 2,
-			'c'	=> 2,
-			'a'	=> 3,
-		);
-		
-		$array = $source;
-		sasort($array);
-		$this->assertSame($expected, $array);
-	}
-	
-	/**
-	 * @covers sasort
-	 * @group  stablesort
-	 * @requires PHP 5.4
-	 */
-	public function testNatural() {
-		$array = array('a9', 'a1', 'a10');
-		sasort($array, SORT_NATURAL);
-		$this->assertSame(array(1 => 'a1', 0 => 'a9', 2 => 'a10'), $array);
-	}
+  /**
+   * @covers SortArray::asort
+   * @group  stablesort
+   */
+  public function testAssociation() {
+    $source = array(
+      'a' => 3,
+      'b' => 2,
+      'c' => 2,
+      'd' => 1,
+    );
 
-	/**
-	 * @covers sasort
-	 * @group  stablesort
-	 */
-	public function testRegular() {
-		$array = array('a9', 'a1', 'a10');
-		sasort($array, SORT_REGULAR);
-		$this->assertNotSame(array(1 => 'a1', 0 => 'a9', 2 => 'a10'), $array);
-	}
+    $expected = array(
+      'd' => 1,
+      'b' => 2,
+      'c' => 2,
+      'a' => 3,
+    );
+
+    $array = $source;
+    SortArray::asort($array);
+    $this->assertSame($expected, $array);
+  }
+
+  /**
+   * @covers SortArray::asort
+   * @group  stablesort
+   * @requires PHP 5.4
+   */
+  public function testNatural() {
+    $array = array('a9', 'a1', 'a10');
+    SortArray::asort($array, SORT_NATURAL);
+    $this->assertSame(array(1 => 'a1', 0 => 'a9', 2 => 'a10'), $array);
+  }
+
+  /**
+   * @covers SortArray::asort
+   * @group  stablesort
+   */
+  public function testRegular() {
+    $array = array('a9', 'a1', 'a10');
+    SortArray::asort($array, SORT_REGULAR);
+    $this->assertNotSame(array(1 => 'a1', 0 => 'a9', 2 => 'a10'), $array);
+  }
+
 }

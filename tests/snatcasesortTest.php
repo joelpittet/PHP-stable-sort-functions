@@ -5,13 +5,14 @@
  */
 class snatcasesortTest extends PHPUnit_Framework_TestCase {
 
-	/**
-	 * @covers snatcasesort
-	 * @group  stablesort
-	 */
-	public function testAssociation() {
-		$array = array('a9', 'a1', 'a10', 'A2');
-		snatcasesort($array);
-		$this->assertSame(array(1 => 'a1', 3 => 'A2', 0 => 'a9', 2 => 'a10'), $array);
-	}
+  /**
+   * @covers SortArray::natcasesort
+   * @group  stablesort
+   */
+  public function testAssociation() {
+    $array = array('a9', 'a1', 'a10', 'A2');
+    SortArray::natcasesort($array);
+    $this->assertSame(array(1 => 'a1', 3 => 'A2', 0 => 'a9', 2 => 'a10'), $array);
+  }
+
 }
